@@ -62,6 +62,20 @@ def as_date(value):
     return dt.date.fromisoformat(str(value))
 
 
+ROOT_LINK = re.compile(r'\b(href|src)="/(?!/)')
+
+
+def relativize(rel_path, html, site_url):
+    """Rewrite root-relative links (href="/x") so the site works from any base path,
+    e.g. both https://kornrei.ch/ and https://ak-cpa.github.io/website/."""
+    if rel_path == "404.html":
+        # Served at whatever URL was missing, so relative links can't work; use absolute ones.
+        prefix = site_url + "/"
+    else:
+        prefix = "../" * rel_path.count("/") or "./"
+    return ROOT_LINK.sub(lambda m: f'{m.group(1)}="{prefix}', html)
+
+
 def write(rel_path, html):
     dest = OUT / rel_path
     dest.parent.mkdir(parents=True, exist_ok=True)
@@ -99,7 +113,10 @@ def build():
     shutil.copytree(STATIC, OUT)
 
     def render(template, rel_path, **ctx):
-        write(rel_path, env.get_template(template).render(**ctx))
+        html = env.get_template(template).render(**ctx)
+        if rel_path.endswith(".html"):
+            html = relativize(rel_path, html, site["url"])
+        write(rel_path, html)
 
     render("home.html", "index.html", home=home, posts_by_year=posts_by_year, books=featured_books,
            has_more_books=len(books) > len(featured_books))
