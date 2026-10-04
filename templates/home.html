@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block name %}<h1 class="name">{{ site.name }}</h1>{% endblock %}
+{% block content %}
+{% if home.about %}
+<section id="about" class="about">{{ home.about.content | safe }}</section>
+{% endif %}
+
+{% if home.beliefs %}
+<section id="beliefs" class="beliefs">{{ home.beliefs.content | safe }}</section>
+{% endif %}
+
+{% if posts_by_year %}
+<section id="writing" class="writing">
+  {% if home.writing %}{{ home.writing.content | safe }}{% endif %}
+  {% for year, posts in posts_by_year %}
+  <div class="year">
+    <h3>{{ year }}</h3>
+    {% for p in posts %}<div><a href="{{ p.url }}">{{ p.title }}</a></div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+  <p class="subscribe">Get new posts {% if site.newsletter_url %}by email <a href="{{ site.newsletter_url }}">here</a>, or {% endif %}via <a href="/feed.xml">RSS</a>.</p>
+</section>
+{% endif %}
+
+{% if books %}
+<section id="books" class="books">
+  {% if home.books %}{{ home.books.content | safe }}{% endif %}
+  <ul>
+    {% for b in books %}
+    <li><a href="{{ b.url }}"><em>{{ b.title }}</em></a> by {{ b.author }}{% if b.rating %} <span class="mute">— {{ b.rating }}/5</span>{% endif %}
+      {% if b.note %}<div class="note">{{ b.note | md | safe }}</div>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  <div><a href="/books/">All reviews →</a></div>
+</section>
+{% endif %}
+
+{% if home.projects %}
+<section id="projects" class="projects">
+  {{ home.projects.content | safe }}
+  {% if home.projects.projects %}
+  <ul>
+    {% for pr in home.projects.projects %}
+    <li>{% if pr.url %}<a href="{{ pr.url }}">{{ pr.name }}</a>{% else %}{{ pr.name }}{% endif %}{% if pr.desc %} — {{ pr.desc | md | safe }}{% endif %}{% if pr.year %} <span class="mute">({{ pr.year }})</span>{% endif %}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</section>
+{% endif %}
+
+{% if home.contact %}
+<section id="contact" class="contact">{{ home.contact.content | safe }}</section>
+{% endif %}
+{% endblock %}

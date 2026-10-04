@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Book reviews — {{ site.name }}{% endblock %}
+{% block content %}
+<section class="books">
+  <h2>Book reviews</h2>
+  <ul>
+    {% for b in books %}
+    <li><a href="{{ b.url }}"><em>{{ b.title }}</em></a> by {{ b.author }}{% if b.rating %} <span class="mute">— {{ b.rating }}/5</span>{% endif %}
+      {% if b.note %}<div class="note">{{ b.note | md | safe }}</div>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+<p class="back"><a href="/">← Home</a></p>
+{% endblock %}

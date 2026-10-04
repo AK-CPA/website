@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} — {{ site.name }}{% endblock %}
+{% block description %}{{ page.description or site.description }}{% endblock %}
+{% block content %}
+<article>
+  <header>
+    <h2>{{ page.title }}</h2>
+    <p><time datetime="{{ page.date.isoformat() }}">{{ page.date | date }}</time></p>
+  </header>
+  <div class="prose">{{ page.content | safe }}</div>
+</article>
+<p class="back"><a href="/#writing">← All writing</a></p>
+{% endblock %}

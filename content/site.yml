@@ -1,0 +1,11 @@
+# Site-wide settings.
+name: Alex Kornreich                # shown at the top of every page
+title: Alex Kornreich               # browser tab / RSS feed title
+description: Personal site of Alex Kornreich.
+url: https://kornrei.ch             # used for RSS links
+domain: kornrei.ch                  # custom domain for GitHub Pages (writes a CNAME file)
+language: en
+default_theme: light                # light or dark, for first-time visitors
+
+# Optional: link for "Get new posts by email here". Leave empty to show only RSS.
+newsletter_url: ""

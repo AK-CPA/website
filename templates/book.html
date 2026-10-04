@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} — {{ site.name }}{% endblock %}
+{% block description %}{{ page.note or site.description }}{% endblock %}
+{% block content %}
+<article>
+  <header>
+    <h2><em>{{ page.title }}</em></h2>
+    <p>by {{ page.author }}{% if page.rating %} · {{ page.rating }}/5{% endif %}</p>
+  </header>
+  <div class="prose">
+    {% if page.content.strip() %}{{ page.content | safe }}{% elif page.note %}<p>{{ page.note | md | safe }}</p>{% endif %}
+  </div>
+</article>
+<p class="back"><a href="/books/">← All reviews</a></p>
+{% endblock %}
