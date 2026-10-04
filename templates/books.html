@@ -5,7 +5,7 @@
   <h2>Book reviews</h2>
   <ul>
     {% for b in books %}
-    <li><a href="{{ b.url }}"><em>{{ b.title }}</em></a> by {{ b.author }}{% if b.rating %} <span class="mute">— {{ b.rating }}/5</span>{% endif %}
+    <li><a href="{{ b.url }}"><em>{{ b.title }}</em></a> by {{ b.author }}{% if b.rating %} <span class="mute">• {{ b.rating }}/5</span>{% endif %}
       {% if b.note %}<div class="note">{{ b.note | md | safe }}</div>{% endif %}
     </li>
     {% endfor %}

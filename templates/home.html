@@ -24,7 +24,7 @@
   {% if home.books %}{{ home.books.content | safe }}{% endif %}
   <ul>
     {% for b in books %}
-    <li><a href="{{ b.url }}"><em>{{ b.title }}</em></a> by {{ b.author }}{% if b.rating %} <span class="mute">— {{ b.rating }}/5</span>{% endif %}
+    <li><a href="{{ b.url }}"><em>{{ b.title }}</em></a> by {{ b.author }}{% if b.rating %} <span class="mute">• {{ b.rating }}/5</span>{% endif %}
       {% if b.note %}<div class="note">{{ b.note | md | safe }}</div>{% endif %}
     </li>
     {% endfor %}
@@ -39,7 +39,7 @@
   {% if home.projects.projects %}
   <ul>
     {% for pr in home.projects.projects %}
-    <li>{% if pr.url %}<a href="{{ pr.url }}">{{ pr.name }}</a>{% else %}{{ pr.name }}{% endif %}{% if pr.desc %} — {{ pr.desc | md | safe }}{% endif %}{% if pr.year %} <span class="mute">({{ pr.year }})</span>{% endif %}</li>
+    <li>{% if pr.url %}<a href="{{ pr.url }}">{{ pr.name }}</a>{% else %}{{ pr.name }}{% endif %}{% if pr.desc %} • {{ pr.desc | md | safe }}{% endif %}{% if pr.year %} <span class="mute">({{ pr.year }})</span>{% endif %}</li>
     {% endfor %}
   </ul>
   {% endif %}

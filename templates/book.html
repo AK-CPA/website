@@ -5,7 +5,7 @@
 <article>
   <header>
     <h2><em>{{ page.title }}</em></h2>
-    <p>by {{ page.author }}{% if page.rating %} · {{ page.rating }}/5{% endif %}</p>
+    <p>by {{ page.author }}{% if page.rating %} • {{ page.rating }}/5{% endif %}</p>
   </header>
   <div class="prose">
     {% if page.content.strip() %}{{ page.content | safe }}{% elif page.note %}<p>{{ page.note | md | safe }}</p>{% endif %}
