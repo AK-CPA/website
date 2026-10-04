@@ -1,8 +1,8 @@
-Some things about me:
+About me:
 
-- Designer and engineer, based in Lisbon
-- Building developer tools at a small studio
-- Ten years across product design and front-end engineering before that
-- Previously at [Tidepool](#) and [Margins](#)
-- Care a lot about software that's fast, predictable, and gets out of the way
-- Currently open to a little freelance work • [say hi](#contact)
+- Currently building Capital Markets technology and data analytics at PwC
+- Working and Living in Los Angeles 
+- Interested in the intersection of finance, accounting, and technology
+- Licensed CPA in New York and California
+- Working on Post-Bacc Computer Science degree at Oregon State
+  
