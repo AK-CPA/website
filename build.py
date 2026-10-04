@@ -122,7 +122,8 @@ def build():
            has_more_books=len(books) > len(featured_books))
     for post in posts:
         render("post.html", f"writing/{post['slug']}/index.html", page=post)
-    render("books.html", "books/index.html", books=books)
+    if books:
+        render("books.html", "books/index.html", books=books)
     for book in books:
         render("book.html", f"books/{book['slug']}/index.html", page=book)
     render("feed.xml", "feed.xml", posts=posts[:20])
