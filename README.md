@@ -8,7 +8,6 @@ Personal site. All the text lives in Markdown files under `content/`; `build.py`
 | --- | --- |
 | Name, page title, domain, newsletter link | `content/site.yml` |
 | "Some things about me" | `content/home/about.md` |
-| "Some things I believe" (set `draft: true` to hide) | `content/home/beliefs.md` |
 | Writing — one file per post | `content/posts/*.md` |
 | Book reviews — one file per book | `content/books/*.md` |
 | Book reviews heading/intro | `content/home/books.md` |
