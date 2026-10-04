@@ -92,7 +92,6 @@ ul ul { margin-top: 4px; display: block; color: var(--soft); }
 .writing { gap: 12px; }
 .year { display: flex; flex-direction: column; gap: 4px; }
 .year h3 { margin: 8px 0 0; font-size: 15px; font-weight: 600; color: var(--mute); }
-.writing .subscribe { margin: 8px 0 0; color: var(--soft); }
 
 .books ul { gap: 8px; }
 .books .note { color: var(--soft); font-size: 16px; }

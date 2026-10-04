@@ -126,7 +126,6 @@ def build():
         render("books.html", "books/index.html", books=books)
     for book in books:
         render("book.html", f"books/{book['slug']}/index.html", page=book)
-    render("feed.xml", "feed.xml", posts=posts[:20])
     render("404.html", "404.html")
 
     if site.get("domain"):

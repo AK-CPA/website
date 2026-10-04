@@ -6,7 +6,7 @@ Personal site. All the text lives in Markdown files under `content/`; `build.py`
 
 | What | Where |
 | --- | --- |
-| Name, page title, domain, newsletter link | `content/site.yml` |
+| Name, page title, domain | `content/site.yml` |
 | "Some things about me" | `content/home/about.md` |
 | Writing — one file per post | `content/posts/*.md` |
 | Book reviews — one file per book | `content/books/*.md` |
@@ -26,7 +26,7 @@ date: 2026-10-04
 Write in Markdown here.
 ```
 
-It shows up on the home page under its year and at `/writing/my-post/`, and in the RSS feed at `/feed.xml`. Add `draft: true` to keep it unpublished.
+It shows up on the home page under its year and at `/writing/my-post/`,. Add `draft: true` to keep it unpublished.
 
 ### New book review
 
